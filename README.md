@@ -145,3 +145,6 @@ is correctly formatted for cross-platform compatibility.
 | RequestMessage         | peer         | Constructs the 12-byte Big-Endian payload for block data requests.                     |
 | ParsePiece             | peer         | Validates incoming data blocks and extracts the raw bytes for the buffer.              |
 | Unmarshal              | peer         | Decodes the compact 6-byte tracker response into reachable IP:Port addresses.          |
+
+
+Resources: https://cdimage.debian.org/debian-cd/current/amd64/bt-cd/
