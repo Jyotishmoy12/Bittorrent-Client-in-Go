@@ -145,11 +145,3 @@ is correctly formatted for cross-platform compatibility.
 | RequestMessage         | peer         | Constructs the 12-byte Big-Endian payload for block data requests.                     |
 | ParsePiece             | peer         | Validates incoming data blocks and extracts the raw bytes for the buffer.              |
 | Unmarshal              | peer         | Decodes the compact 6-byte tracker response into reachable IP:Port addresses.          |
-
-  ---------------------------------------------------------------------------
-
-------------------------------------------------------------------------
-
-Would you like me to show you how to implement the final step: writing
-these verified pieces directly to your SSD so we can clear them from
-your RAM?
