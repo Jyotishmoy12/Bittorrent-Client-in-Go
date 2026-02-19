@@ -131,21 +131,20 @@ is correctly formatted for cross-platform compatibility.
 
 # Functional Map Summary
 
-  ---------------------------------------------------------------------------
-  Package       Key Functions             Role
-  ------------- ------------------------- -----------------------------------
-  torrentfile   Open, Download, InfoHash  Metadata parsing and global
-                                          orchestration.
+| Function               | Package       | Single-Line Description                                                                 |
+|------------------------|--------------|------------------------------------------------------------------------------------------|
+| Open                   | torrentfile  | Parses the physical .torrent file into Go structs using Bencode reflection.            |
+| InfoHash               | torrentfile  | Generates the unique SHA-1 identifier for the torrent's metadata.                      |
+| Download               | torrentfile  | Orchestrates workers and writes verified pieces to specific disk offsets.              |
+| startDownloadWorker    | torrentfile  | Manages the peer lifecycle: connection, handshake, and waiting for Unchoke.            |
+| attemptDownloadPiece   | torrentfile  | Executes the high-speed block request pipeline for a single piece.                     |
+| BuildTrackerURL        | tracker      | Formats the announce URL with the required URL-encoded binary InfoHash.                |
+| GetPeers               | tracker      | Performs the HTTP GET request to trackers to discover the swarm.                       |
+| Read                   | peer         | Buffers the TCP stream to extract length-prefixed BitTorrent wire messages.            |
+| ReadHandshake          | peer         | Specifically parses the 68-byte initial handshake response from a peer.                |
+| RequestMessage         | peer         | Constructs the 12-byte Big-Endian payload for block data requests.                     |
+| ParsePiece             | peer         | Validates incoming data blocks and extracts the raw bytes for the buffer.              |
+| Unmarshal              | peer         | Decodes the compact 6-byte tracker response into reachable IP:Port addresses.          |
 
-  peer          ReadMessage, Serialize,   Binary wire protocol and TCP stream
-                Unmarshal                 management.
 
-  tracker       BuildTrackerURL, GetPeers Swarm discovery and HTTP
-                                          negotiation.
-  ---------------------------------------------------------------------------
-
-------------------------------------------------------------------------
-
-Would you like me to show you how to implement the final step: writing
-these verified pieces directly to your SSD so we can clear them from
-your RAM?
+Resources: https://cdimage.debian.org/debian-cd/current/amd64/bt-cd/
