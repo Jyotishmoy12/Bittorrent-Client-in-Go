@@ -10,19 +10,17 @@ import (
 )
 
 // bencodeTorrent is the internak representation of a torrent file. It is used to unmarshal the bencoded data from the torrent file.
-
 type bencodeTorrent struct {
-	Announce string      `bencode:"announce"`
-	Info     bencodeInfo `bencode:"info"`
+	Announce string      `bencode:"announce"` // The URL of the tracker that coordinates the torrent swarm
+	Info     bencodeInfo `bencode:"info"` // The file metadata, which includes the piece hashes, piece length, total length, and file name
 }
 
 // bencodeInfo contains the actual file metadata
-
 type bencodeInfo struct {
-	Pieces      string `bencode:"pieces"`
-	PieceLength int    `bencode:"piece length"`
-	Length      int    `bencode:"length"`
-	Name        string `bencode:"name"`
+	Pieces      string `bencode:"pieces"` // A string containing the concatenated SHA-1 hashes of each piece
+	PieceLength int    `bencode:"piece length"` // The length of each piece
+	Length      int    `bencode:"length"` // The total length of the file
+	Name        string `bencode:"name"` // The name of the file being shared
 }
 
 func Open(path string) (bencodeTorrent, error) {
