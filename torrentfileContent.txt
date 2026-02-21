@@ -1,0 +1,16 @@
+=== TORRENT FILE CONTENTS ===
+
+Announce URL: http://bttracker.debian.org:6969/announce
+Comment: Debian CD from cdimage.debian.org
+Created By: mktorrent 1.1
+Creation Date: 1768050335     
+
+Info Dictionary:
+  Length (bytes): 790626304   
+  Name: debian-13.3.0-amd64-netinst.iso
+  Piece Length (bytes): 262144
+  Pieces: 3016 pieces (60 bytes total)
+  Piece Hashes (SHA-1):       
+92e2b581c011ae163c1f6f9
+    ... and 3011 more pieces
+url-list: [https://cdimage.debian.org/cdimage/release/13.3.0/amd64/iso-cd/debian-13.3.0-amd64-netinst.iso https://cdimage.debian.org/cdimage/archive/13.3.0/amd64/iso-cd/debian-13.3.0-amd64-netinst.iso]      
